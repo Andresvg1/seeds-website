@@ -8,274 +8,236 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --soil:#1C1208;
-  --bark:#3D2B1F;
-  --leaf:#2D6A4F;
-  --leaf-mid:#40916C;
-  --leaf-light:#74C69D;
-  --harvest:#D4A017;
-  --cream:#FAF6EE;
-  --paper:#F0E8D8;
-  --mist:rgba(250,246,238,0.06);
+  --green-dark:#1B5E3B;
+  --green-mid:#2D8653;
+  --green-light:#D6EFE2;
+  --green-pale:#F2FAF5;
+  --harvest:#C8860A;
+  --harvest-light:#FEF6E4;
+  --ink:#141414;
+  --ink-mid:#3A3A3A;
+  --gray:#6B6B6B;
+  --border:#E5E5E0;
+  --white:#FFFFFF;
+  --cream:#FAFAF7;
   --serif:'Fraunces',Georgia,serif;
   --sans:'DM Sans',system-ui,sans-serif;
 }
-
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--soil);color:var(--cream);overflow-x:hidden}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);overflow-x:hidden}
 
-/* ── NAV ── */
+/* NAV */
 nav{
-  position:fixed;top:0;width:100%;z-index:100;
-  padding:20px 6%;
+  position:sticky;top:0;z-index:100;
+  padding:0 6%;height:66px;
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(28,18,8,0.85);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(250,246,238,0.08);
+  background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
 }
-.logo{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--cream);text-decoration:none;display:flex;align-items:center;gap:10px}
-.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--leaf-light);display:inline-block}
-.nav-links{display:flex;gap:36px;align-items:center}
-.nav-links a{color:rgba(250,246,238,0.65);text-decoration:none;font-size:14px;font-weight:400;letter-spacing:0.3px;transition:color .2s}
-.nav-links a:hover{color:var(--cream)}
-.nav-cta{
-  background:var(--leaf);color:var(--cream)!important;
-  padding:9px 22px;border-radius:6px;font-weight:500!important;
-  font-size:13px!important;letter-spacing:0.5px;
-  transition:background .2s!important;
-}
-.nav-cta:hover{background:var(--leaf-mid)!important}
+.logo{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--green-dark);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-leaf{color:var(--green-mid);font-size:18px}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:14px;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--green-dark);color:var(--white)!important;padding:9px 20px;border-radius:7px;font-weight:500!important;font-size:14px!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--green-mid)!important}
 
-/* ── HERO ── */
+/* HERO */
 .hero{
-  min-height:100vh;
-  padding:140px 6% 100px;
-  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
-  background:
-    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(45,106,79,0.15) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(212,160,23,0.08) 0%, transparent 60%),
-    var(--soil);
+  padding:88px 6% 80px;
+  display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;
+  background:linear-gradient(135deg,var(--green-pale) 0%,var(--white) 55%);
 }
-.hero-eyebrow{
-  font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;
-  color:var(--leaf-light);margin-bottom:24px;display:flex;align-items:center;gap:10px;
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--green-mid);margin-bottom:22px;
 }
-.hero-eyebrow::before{content:'';display:inline-block;width:24px;height:1px;background:var(--leaf-light)}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1.5px;background:var(--green-mid)}
 .hero h1{
-  font-family:var(--serif);
-  font-size:clamp(42px,5.5vw,72px);
-  font-weight:900;line-height:1.05;
-  color:var(--cream);margin-bottom:28px;
-  letter-spacing:-1px;
+  font-family:var(--serif);font-size:clamp(38px,5vw,64px);
+  font-weight:900;line-height:1.08;letter-spacing:-1.5px;
+  color:var(--ink);margin-bottom:20px;
 }
-.hero h1 em{font-style:italic;color:var(--leaf-light);font-weight:300}
-.hero p{
-  font-size:17px;line-height:1.75;
-  color:rgba(250,246,238,0.7);
-  max-width:460px;margin-bottom:44px;
-}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-.btn-leaf{
+.hero h1 em{font-style:italic;font-weight:300;color:var(--green-mid)}
+.hero p{font-size:17px;line-height:1.75;color:var(--gray);max-width:460px;margin-bottom:36px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{
   display:inline-flex;align-items:center;gap:8px;
-  background:var(--leaf);color:var(--cream);
-  padding:14px 28px;border-radius:6px;
-  font-size:15px;font-weight:500;text-decoration:none;
-  letter-spacing:0.2px;
-  transition:background .2s,transform .15s;
+  background:var(--green-dark);color:var(--white);
+  padding:13px 26px;border-radius:7px;font-size:15px;font-weight:500;
+  text-decoration:none;transition:background .2s,transform .15s;
+  box-shadow:0 2px 12px rgba(27,94,59,0.2);
 }
-.btn-leaf:hover{background:var(--leaf-mid);transform:translateY(-2px)}
-.btn-ghost{
+.btn-primary:hover{background:var(--green-mid);transform:translateY(-1px)}
+.btn-outline{
   display:inline-flex;align-items:center;gap:8px;
-  background:transparent;color:var(--cream);
-  padding:14px 28px;border-radius:6px;
-  font-size:15px;font-weight:400;text-decoration:none;
-  border:1px solid rgba(250,246,238,0.25);
-  transition:border-color .2s,background .2s;
+  background:transparent;color:var(--green-dark);
+  padding:13px 26px;border-radius:7px;font-size:15px;font-weight:400;
+  text-decoration:none;border:1.5px solid var(--green-dark);transition:all .2s;
 }
-.btn-ghost:hover{border-color:var(--cream);background:rgba(250,246,238,0.05)}
+.btn-outline:hover{background:var(--green-pale)}
 
-/* Hero right — chat mockup */
-.hero-right{display:flex;flex-direction:column;gap:16px}
+/* Chat mockup */
+.hero-right{display:flex;flex-direction:column;gap:14px}
 .chat-window{
-  background:rgba(250,246,238,0.04);
-  border:1px solid rgba(250,246,238,0.1);
-  border-radius:16px;padding:24px;
+  background:var(--white);border-radius:16px;
+  border:1px solid var(--border);padding:22px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.07);
 }
 .chat-header{
-  display:flex;align-items:center;gap:12px;
-  padding-bottom:16px;margin-bottom:16px;
-  border-bottom:1px solid rgba(250,246,238,0.08);
+  display:flex;align-items:center;gap:10px;
+  padding-bottom:14px;margin-bottom:14px;
+  border-bottom:1px solid var(--border);
 }
 .chat-avatar{
-  width:36px;height:36px;border-radius:50%;
-  background:var(--leaf);display:flex;align-items:center;
-  justify-content:center;font-size:16px;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--green-dark);color:var(--white);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
 }
-.chat-name{font-size:14px;font-weight:500}
-.chat-status{font-size:11px;color:var(--leaf-light)}
-.msg{margin-bottom:12px}
-.msg-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(250,246,238,0.35);margin-bottom:5px}
-.msg-label.r{text-align:right}
+.chat-name{font-size:13px;font-weight:600;color:var(--ink)}
+.chat-status{font-size:11px;color:var(--green-mid)}
+.msg{margin-bottom:10px}
+.lbl{font-size:10px;letter-spacing:0.8px;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
+.lbl.r{text-align:right}
 .bubble{
-  display:inline-block;max-width:85%;
-  padding:11px 15px;border-radius:12px;font-size:13.5px;line-height:1.55;
+  display:inline-block;max-width:86%;
+  padding:10px 14px;border-radius:12px;font-size:13.5px;line-height:1.55;
 }
-.bubble.seeds{background:rgba(45,106,79,0.3);border:1px solid rgba(116,198,157,0.2);color:var(--cream);border-radius:4px 12px 12px 12px}
-.bubble.user{background:rgba(250,246,238,0.1);border:1px solid rgba(250,246,238,0.12);color:var(--cream);margin-left:auto;display:block;border-radius:12px 4px 12px 12px}
-.metrics-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.metric{
-  background:rgba(250,246,238,0.04);
-  border:1px solid rgba(250,246,238,0.1);
-  border-radius:10px;padding:16px 12px;text-align:center;
+.bubble.s{background:var(--green-pale);color:var(--ink);border-radius:4px 12px 12px 12px;border:1px solid var(--green-light)}
+.bubble.u{background:var(--green-dark);color:var(--white);margin-left:auto;display:block;border-radius:12px 4px 12px 12px}
+.metrics-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.met{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:10px;padding:14px 10px;text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
 }
-.metric-n{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--leaf-light);display:block}
-.metric-l{font-size:11px;color:rgba(250,246,238,0.45);margin-top:4px}
+.met-n{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--green-dark);display:block}
+.met-l{font-size:11px;color:var(--gray);margin-top:3px}
 
-/* ── DIVIDER ── */
-.divider{
-  padding:32px 6%;
-  border-top:1px solid rgba(250,246,238,0.06);
-  border-bottom:1px solid rgba(250,246,238,0.06);
-  display:flex;gap:60px;align-items:center;
-  background:rgba(250,246,238,0.02);
-  overflow:hidden;
+/* TICKER */
+.ticker{
+  padding:18px 0;background:var(--green-dark);overflow:hidden;
+  display:flex;gap:0;white-space:nowrap;
 }
-.divider-item{white-space:nowrap;font-size:13px;color:rgba(250,246,238,0.35);letter-spacing:0.5px}
-.divider-sep{color:var(--leaf-mid);font-size:18px}
+.ticker-inner{display:flex;gap:48px;animation:scroll 30s linear infinite}
+.ticker-item{font-size:13px;color:rgba(255,255,255,0.7);letter-spacing:0.3px;flex-shrink:0}
+.ticker-dot{color:var(--green-light);font-size:18px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ── SECTION COMMONS ── */
-.section{padding:100px 6%}
+/* SECTIONS */
+.section{padding:96px 6%}
+.bg-cream{background:var(--cream)}
+.bg-green{background:var(--green-pale)}
 .s-tag{
-  display:inline-flex;align-items:center;gap:8px;
   font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
-  color:var(--leaf-light);margin-bottom:20px;
+  color:var(--green-mid);margin-bottom:14px;display:flex;align-items:center;gap:8px;
 }
-.s-tag::before{content:'';display:inline-block;width:16px;height:1px;background:var(--leaf-light)}
+.s-tag::before{content:'';display:inline-block;width:14px;height:1.5px;background:var(--green-mid)}
 .s-h2{
-  font-family:var(--serif);font-size:clamp(32px,4vw,52px);
-  font-weight:700;line-height:1.15;color:var(--cream);
-  margin-bottom:16px;letter-spacing:-0.5px;
+  font-family:var(--serif);font-size:clamp(28px,3.5vw,46px);
+  font-weight:700;line-height:1.15;color:var(--ink);
+  letter-spacing:-0.5px;margin-bottom:14px;
 }
-.s-sub{font-size:16px;color:rgba(250,246,238,0.6);line-height:1.7;max-width:520px;margin-bottom:56px}
+.s-sub{font-size:15px;color:var(--gray);line-height:1.75;max-width:520px;margin-bottom:52px}
 
-/* ── HOW IT WORKS ── */
-.how{background:rgba(250,246,238,0.02)}
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(250,246,238,0.06)}
-.step-card{
-  background:var(--soil);padding:48px 36px;
-  transition:background .3s;
-}
-.step-card:hover{background:rgba(45,106,79,0.08)}
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.step{background:var(--white);padding:44px 32px;transition:background .25s}
+.step:hover{background:var(--green-pale)}
 .step-n{
-  font-family:var(--serif);font-size:64px;font-weight:900;
-  color:rgba(250,246,238,0.06);line-height:1;margin-bottom:24px;
+  font-family:var(--serif);font-size:56px;font-weight:900;
+  color:var(--green-light);line-height:1;margin-bottom:20px;
 }
-.step-card h3{font-size:18px;font-weight:500;color:var(--cream);margin-bottom:12px}
-.step-card p{font-size:14px;color:rgba(250,246,238,0.5);line-height:1.7}
+.step h3{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:10px}
+.step p{font-size:14px;color:var(--gray);line-height:1.7}
 
-/* ── AUDIENCE ── */
-.audience{padding:100px 6%;background:var(--bark)}
-.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.aud-card{
-  border-radius:16px;padding:52px 44px;
-  border:1px solid rgba(250,246,238,0.08);
+/* AUDIENCE */
+.aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.aud{border-radius:16px;padding:48px 40px;border:1px solid var(--border)}
+.aud.green{background:var(--green-pale);border-color:var(--green-light)}
+.aud.amber{background:var(--harvest-light);border-color:#F0D08A}
+.aud h3{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.aud-sub{font-size:13px;color:var(--gray);margin-bottom:32px;line-height:1.6}
+.feat{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.dot.g{background:var(--green-mid)}
+.dot.a{background:var(--harvest)}
+.feat p{font-size:14px;color:var(--ink-mid);line-height:1.65}
+.aud-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:32px;
+  padding:12px 24px;border-radius:7px;font-size:14px;font-weight:500;
+  text-decoration:none;transition:all .2s;
 }
-.aud-card.green{background:rgba(45,106,79,0.2)}
-.aud-card.amber{background:rgba(212,160,23,0.1)}
-.aud-card h3{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--cream);margin-bottom:8px}
-.aud-card .aud-sub{font-size:14px;color:rgba(250,246,238,0.5);margin-bottom:36px;line-height:1.6}
-.feat{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
-.feat-dot{width:6px;height:6px;border-radius:50%;background:var(--leaf-light);margin-top:7px;flex-shrink:0}
-.feat-dot.amber{background:var(--harvest)}
-.feat p{font-size:14px;color:rgba(250,246,238,0.75);line-height:1.6}
-.aud-cta{
-  display:inline-flex;align-items:center;gap:8px;
-  margin-top:36px;padding:13px 26px;border-radius:6px;
-  font-size:14px;font-weight:500;text-decoration:none;
-  letter-spacing:0.3px;transition:all .2s;
-}
-.aud-cta.g{background:var(--leaf);color:var(--cream)}
-.aud-cta.g:hover{background:var(--leaf-mid)}
-.aud-cta.a{background:rgba(212,160,23,0.2);color:var(--harvest);border:1px solid rgba(212,160,23,0.3)}
-.aud-cta.a:hover{background:rgba(212,160,23,0.3)}
+.aud-btn.g{background:var(--green-dark);color:var(--white)}
+.aud-btn.g:hover{background:var(--green-mid)}
+.aud-btn.a{background:var(--harvest);color:var(--white)}
+.aud-btn.a:hover{opacity:.9}
 
-/* ── NUMBERS ── */
-.numbers{
-  padding:100px 6%;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(45,106,79,0.2) 0%, transparent 60%),
-    var(--soil);
+/* NUMBERS */
+.numbers-section{padding:96px 6%;background:var(--green-dark);color:var(--white);text-align:center}
+.numbers-section .s-tag{color:var(--green-light);justify-content:center}
+.numbers-section .s-tag::before{background:var(--green-light)}
+.numbers-section .s-h2{color:var(--white)}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.1);margin-top:60px}
+.num{background:var(--green-dark);padding:48px 20px}
+.num-n{font-family:var(--serif);font-size:clamp(38px,4.5vw,58px);font-weight:900;color:var(--green-light);display:block;line-height:1;margin-bottom:10px}
+.num-l{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6}
+.num-src{font-size:10px;color:rgba(255,255,255,0.3);margin-top:8px;display:block}
+
+/* CTA */
+.cta-wrap{
+  padding:96px 6%;
+  background:linear-gradient(135deg,var(--green-pale) 0%,var(--white) 100%);
   text-align:center;
 }
-.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(250,246,238,0.06);margin-top:64px}
-.num-card{background:var(--soil);padding:52px 24px}
-.num-n{
-  font-family:var(--serif);font-size:clamp(42px,5vw,64px);
-  font-weight:900;color:var(--leaf-light);
-  display:block;line-height:1;margin-bottom:12px;
+.cta-wrap .s-h2{margin-bottom:12px}
+.cta-wrap p{font-size:16px;color:var(--gray);margin-bottom:36px;line-height:1.7}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--green-dark);color:var(--white);
+  padding:15px 32px;border-radius:7px;font-size:16px;font-weight:500;
+  text-decoration:none;transition:all .2s;
+  box-shadow:0 4px 16px rgba(27,94,59,0.25);
 }
-.num-l{font-size:13px;color:rgba(250,246,238,0.45);line-height:1.6}
+.btn-wa:hover{background:var(--green-mid);transform:translateY(-2px)}
+.btn-email{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;color:var(--green-dark);
+  padding:15px 32px;border-radius:7px;font-size:16px;font-weight:400;
+  text-decoration:none;border:1.5px solid var(--green-dark);transition:all .2s;
+}
+.btn-email:hover{background:var(--green-pale)}
+.cta-note{margin-top:20px;font-size:13px;color:var(--gray)}
+.cta-note a{color:var(--green-dark);font-weight:500;text-decoration:none}
 
-/* ── CTA BAND ── */
-.cta-band{
-  padding:100px 6%;
-  background:var(--leaf);
-  display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;
-}
-.cta-band h2{
-  font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);
-  font-weight:700;color:var(--cream);line-height:1.2;
-}
-.cta-band p{font-size:15px;color:rgba(250,246,238,0.75);margin-top:12px;line-height:1.6}
-.btn-cream{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--cream);color:var(--leaf);
-  padding:16px 32px;border-radius:6px;
-  font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap;
-  transition:all .2s;flex-shrink:0;
-}
-.btn-cream:hover{background:var(--paper);transform:translateY(-2px)}
+/* FOOTER */
+footer{padding:56px 6% 28px;background:var(--ink);color:rgba(255,255,255,0.4)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
+.footer-desc{font-size:13px;line-height:1.7;max-width:260px}
+footer h5{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px}
+footer a{display:block;color:rgba(255,255,255,0.45);text-decoration:none;font-size:13px;margin-bottom:9px;transition:color .2s}
+footer a:hover{color:var(--white)}
+.footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:8px}
 
-/* ── FOOTER ── */
-footer{
-  padding:64px 6% 32px;
-  background:rgba(0,0,0,0.4);
-  border-top:1px solid rgba(250,246,238,0.06);
-}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:48px}
-.footer-brand{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--cream);margin-bottom:12px}
-.footer-desc{font-size:13px;color:rgba(250,246,238,0.4);line-height:1.7;max-width:280px}
-footer h5{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(250,246,238,0.35);margin-bottom:20px}
-footer a{display:block;color:rgba(250,246,238,0.5);text-decoration:none;font-size:13px;margin-bottom:10px;transition:color .2s}
-footer a:hover{color:var(--cream)}
-.footer-bottom{
-  padding-top:24px;border-top:1px solid rgba(250,246,238,0.06);
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:12px;color:rgba(250,246,238,0.25);
-}
-.footer-bottom a{color:rgba(250,246,238,0.35);text-decoration:none}
-
-/* ── RESPONSIVE ── */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;gap:48px;padding:120px 5% 80px}
-  .hero-right .chat-window{display:block}
-  .steps-grid,.audience-grid,.numbers-grid,.footer-grid{grid-template-columns:1fr}
-  .numbers-grid{gap:1px}
-  .cta-band{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr;gap:40px;padding:80px 5% 64px}
+  .steps,.aud-grid,.nums,.footer-top{grid-template-columns:1fr}
+  .nums{gap:1px}
   .nav-links{display:none}
 }
-
-/* ── FADE IN ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-.hero h1,.hero p,.hero-actions{animation:fadeUp .8s ease both}
-.hero p{animation-delay:.1s}
-.hero-actions{animation-delay:.2s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero h1{animation:fadeUp .7s ease both}
+.hero p{animation:fadeUp .7s .1s ease both}
+.hero-btns{animation:fadeUp .7s .2s ease both}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="logo"><span class="logo-dot"></span>Seeds</a>
+  <a href="#" class="logo"><span class="logo-leaf">🌱</span> Seeds</a>
   <div class="nav-links">
     <a href="#como-funciona">Cómo funciona</a>
     <a href="#emprendedores">Emprendedores</a>
@@ -285,15 +247,14 @@ footer a:hover{color:var(--cream)}
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div>
-    <div class="hero-eyebrow">Colombia · Impacto real</div>
+    <div class="hero-tag">Colombia · Agricultura · Impacto real</div>
     <h1>Capital para<br>el campo.<br><em>Retorno</em> para<br>el mundo.</h1>
-    <p>Seeds conecta emprendedores rurales colombianos con inversionistas que creen en la sostenibilidad financiera, social y ambiental. Todo por WhatsApp.</p>
-    <div class="hero-actions">
-      <a href="#whatsapp" class="btn-leaf">🌱 Registrar mi negocio</a>
-      <a href="investors.html" class="btn-ghost">Soy inversionista →</a>
+    <p>Seeds conecta emprendedores rurales colombianos con inversionistas que creen en la sostenibilidad financiera, social y ambiental. Todo a través de WhatsApp.</p>
+    <div class="hero-btns">
+      <a href="#whatsapp" class="btn-primary">🌱 Registrar mi negocio</a>
+      <a href="investors.html" class="btn-outline">Soy inversionista →</a>
     </div>
   </div>
   <div class="hero-right">
@@ -306,114 +267,133 @@ footer a:hover{color:var(--cream)}
         </div>
       </div>
       <div class="msg">
-        <div class="msg-label">Seeds</div>
-        <div class="bubble seeds">¡Hola! Bienvenido a Seeds 🌱 Cuéntame sobre tu negocio con tus propias palabras: qué produces, dónde estás, cuánto llevas, y qué necesitas.</div>
+        <div class="lbl">Seeds</div>
+        <div class="bubble s">¡Hola! Bienvenido a Seeds 🌱 Cuéntame sobre tu negocio con tus propias palabras: qué produces, dónde estás, cuánto llevas, y qué necesitas.</div>
       </div>
       <div class="msg">
-        <div class="msg-label r">Carlos · Nariño</div>
-        <div class="bubble user">Tengo una finca de café, 3 hectáreas en Pasto, llevo 8 años cultivando café especial. Necesito 15 millones para comprar una despulpadora.</div>
+        <div class="lbl r">Carlos · Nariño</div>
+        <div class="bubble u">Tengo una finca de café, 3 hectáreas en Pasto, llevo 8 años cultivando café especial. Necesito 15 millones para una despulpadora.</div>
       </div>
       <div class="msg">
-        <div class="msg-label">Seeds</div>
-        <div class="bubble seeds">¡Perfecto Carlos! Ya tengo casi todo. Una pregunta: ¿eres dueño de la finca o la tienes en arriendo?</div>
+        <div class="lbl">Seeds</div>
+        <div class="bubble s">¡Perfecto Carlos! Ya tengo casi todo. Una última pregunta: ¿eres dueño de la finca o la tienes en arriendo?</div>
       </div>
     </div>
-    <div class="metrics-strip">
-      <div class="metric"><span class="metric-n">3′</span><div class="metric-l">Registro completo</div></div>
-      <div class="metric"><span class="metric-n">100%</span><div class="metric-l">Por WhatsApp</div></div>
-      <div class="metric"><span class="metric-n">Gratis</span><div class="metric-l">Para emprendedores</div></div>
+    <div class="metrics-row">
+      <div class="met"><span class="met-n">3 minutos</span><div class="met-l">Registro completo</div></div>
+      <div class="met"><span class="met-n">100%</span><div class="met-l">Por WhatsApp</div></div>
+      <div class="met"><span class="met-n">Gratis</span><div class="met-l">Para emprendedores</div></div>
     </div>
   </div>
 </section>
 
-<!-- DIVIDER -->
-<div class="divider">
-  <span class="divider-item">Café · Nariño</span><span class="divider-sep">·</span>
-  <span class="divider-item">Cacao · Caquetá</span><span class="divider-sep">·</span>
-  <span class="divider-item">Ganadería · Boyacá</span><span class="divider-sep">·</span>
-  <span class="divider-item">Panela · Santander</span><span class="divider-sep">·</span>
-  <span class="divider-item">Pesca · Chocó</span><span class="divider-sep">·</span>
-  <span class="divider-item">Artesanías · Huila</span><span class="divider-sep">·</span>
-  <span class="divider-item">Lácteos · Cundinamarca</span><span class="divider-sep">·</span>
-  <span class="divider-item">Agroindustria · Antioquia</span>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Café · Nariño</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Cacao · Caquetá</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Ganadería · Boyacá</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Panela · Santander</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Frutales · Huila</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Hortalizas · Cundinamarca</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Café · Nariño</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Cacao · Caquetá</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Ganadería · Boyacá</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Panela · Santander</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Frutales · Huila</span><span class="ticker-dot"> · </span>
+    <span class="ticker-item">Hortalizas · Cundinamarca</span><span class="ticker-dot"> · </span>
+  </div>
 </div>
 
-<!-- HOW -->
-<section class="section how" id="como-funciona">
+<section class="section bg-cream" id="como-funciona">
   <div class="s-tag">El proceso</div>
   <h2 class="s-h2">Simple para el emprendedor.<br>Riguroso para el inversionista.</h2>
-  <p class="s-sub">Tres pasos que convierten una conversación de WhatsApp en una oportunidad de inversión verificada.</p>
-  <div class="steps-grid">
-    <div class="step-card">
+  <p class="s-sub">Con solo tres pasos convertimos una simple conversación de WhatsApp en una oportunidad de inversión verificada.</p>
+  <div class="steps">
+    <div class="step">
       <div class="step-n">01</div>
       <h3>El emprendedor cuenta su historia</h3>
-      <p>Por WhatsApp, en su idioma, a su ritmo. Nuestro asistente de inteligencia artificial extrae la información relevante de la conversación natural. Sin formularios, sin oficinas, sin intermediarios.</p>
+      <p>Por medio de WhatsApp, en su idioma, a su ritmo. Nuestro asistente AI — Seeds — se encarga de extraer la información relevante de la conversación. Sin formularios, sin oficinas, sin intermediarios.</p>
     </div>
-    <div class="step-card">
+    <div class="step">
       <div class="step-n">02</div>
-      <h3>Seeds estructura y califica el perfil</h3>
-      <p>La IA convierte la conversación en un perfil financiero estructurado con dos índices: completitud de información y confianza en la inversión. Cada perfil es verificado antes de publicarse.</p>
+      <h3>Seeds estructura y verifica el perfil</h3>
+      <p>La IA convierte la conversación en un perfil financiero estructurado con dos índices: completitud de la información y solidez de la inversión. Cada perfil es revisado antes de publicarse.</p>
     </div>
-    <div class="step-card">
+    <div class="step">
       <div class="step-n">03</div>
       <h3>El capital llega al campo</h3>
-      <p>Inversionistas acceden a oportunidades verificadas con retorno financiero e impacto medible. El capital se desembolsa, el negocio crece, y los retornos fluyen de vuelta con transparencia total.</p>
+      <p>Inversionistas acceden a oportunidades verificadas con retorno financiero e impacto social y ambiental medible. El capital se desembolsa, el negocio crece, y los retornos fluyen de vuelta con total transparencia.</p>
     </div>
   </div>
 </section>
 
-<!-- AUDIENCE -->
-<section class="audience" id="emprendedores">
+<section class="section" id="emprendedores">
   <div class="s-tag">Para cada parte</div>
   <h2 class="s-h2">Lo que Seeds hace por ti</h2>
-  <div class="audience-grid">
-    <div class="aud-card green">
-      <h3>Emprendedores</h3>
-      <p class="aud-sub">Agricultores, pescadores, ganaderos, artesanos y pequeños empresarios rurales de Colombia</p>
-      <div class="feat"><div class="feat-dot"></div><p>Registro gratuito por WhatsApp en menos de 10 minutos</p></div>
-      <div class="feat"><div class="feat-dot"></div><p>Sin papeleo complejo — cuéntanos con tus propias palabras</p></div>
-      <div class="feat"><div class="feat-dot"></div><p>Acceso a capital que los bancos tradicionales no ofrecen</p></div>
-      <div class="feat"><div class="feat-dot"></div><p>Condiciones adaptadas a tu ciclo productivo</p></div>
-      <div class="feat"><div class="feat-dot"></div><p>Tu información es tuya — nunca la vendemos</p></div>
-      <a href="#whatsapp" class="aud-cta g">Registrar mi negocio →</a>
+  <div class="aud-grid">
+    <div class="aud green">
+      <h3>🌱 Emprendedores</h3>
+      <p class="aud-sub">Agricultores y pequeños empresarios rurales de Colombia que necesitan capital para crecer</p>
+      <div class="feat"><div class="dot g"></div><p>Registro gratuito por WhatsApp en menos de 5 minutos</p></div>
+      <div class="feat"><div class="dot g"></div><p>Sin papeleo, cuéntanos tu historia en tus propias palabras</p></div>
+      <div class="feat"><div class="dot g"></div><p>Acceso a capital que los bancos tradicionales no ofrecen</p></div>
+      <div class="feat"><div class="dot g"></div><p>Condiciones adaptadas a tu ciclo productivo agrícola</p></div>
+      <div class="feat"><div class="dot g"></div><p>Tu información es tuya. Nunca la compartimos ni vendemos</p></div>
+      <a href="#whatsapp" class="aud-btn g">Registrar mi negocio →</a>
     </div>
-    <div class="aud-card amber" id="inversionistas">
-      <h3>Inversionistas</h3>
-      <p class="aud-sub">Fondos de impacto, bancos, family offices e individuos con visión de largo plazo</p>
-      <div class="feat"><div class="feat-dot amber"></div><p>Flujo de oportunidades verificadas y estructuradas por IA</p></div>
-      <div class="feat"><div class="feat-dot amber"></div><p>Índice de riesgo financiero calculado automáticamente</p></div>
-      <div class="feat"><div class="feat-dot amber"></div><p>Retorno financiero con impacto social y ambiental medible</p></div>
-      <div class="feat"><div class="feat-dot amber"></div><p>Reportes ESG para cumplimiento institucional</p></div>
-      <div class="feat"><div class="feat-dot amber"></div><p>Dashboard y API para gestión de portafolio a escala</p></div>
-      <a href="investors.html" class="aud-cta a">Ver información para inversionistas →</a>
+    <div class="aud amber" id="inversionistas">
+      <h3>📈 Inversionistas</h3>
+      <p class="aud-sub">Fondos de impacto, family offices e individuos que quieren retorno financiero con impacto real</p>
+      <div class="feat"><div class="dot a"></div><p>Flujo de oportunidades agrícolas verificadas y estructuradas por IA</p></div>
+      <div class="feat"><div class="dot a"></div><p>Índice de riesgo financiero calculado automáticamente en cada perfil</p></div>
+      <div class="feat"><div class="dot a"></div><p>Retorno financiero competitivo con impacto social y ambiental medible</p></div>
+      <div class="feat"><div class="dot a"></div><p>Reportes ESG para cumplimiento institucional</p></div>
+      <div class="feat"><div class="dot a"></div><p>Dashboard y API para gestión de portafolio a escala</p></div>
+      <a href="investors.html" class="aud-btn a">Ver información para inversionistas →</a>
     </div>
   </div>
 </section>
 
-<!-- NUMBERS -->
-<section class="numbers">
-  <div class="s-tag" style="justify-content:center">El contexto</div>
-  <h2 class="s-h2">El campo colombiano<br>necesita este capital.</h2>
-  <div class="numbers-grid">
-    <div class="num-card"><span class="num-n">$170B</span><div class="num-l">USD de brecha financiera para pequeños productores en América Latina</div></div>
-    <div class="num-card"><span class="num-n">44%</span><div class="num-l">De municipios rurales colombianos sin acceso a servicios financieros formales</div></div>
-    <div class="num-card"><span class="num-n">18%</span><div class="num-l">Retorno anual promedio en plataformas de financiación agrícola en Colombia</div></div>
-    <div class="num-card"><span class="num-n">90%</span><div class="num-l">Penetración de WhatsApp en zonas rurales de Colombia</div></div>
+<section class="numbers-section">
+  <div class="s-tag">El contexto</div>
+  <h2 class="s-h2" style="color:var(--white)">El campo colombiano<br>necesita este capital.</h2>
+  <div class="nums">
+    <div class="num">
+      <span class="num-n">22.7%</span>
+      <div class="num-l">De adultos en municipios rurales colombianos accedió a crédito formal en 2023</div>
+      <span class="num-src">Fuente: SFC — Reporte de Inclusión Financiera 2023</span>
+    </div>
+    <div class="num">
+      <span class="num-n">34 pp</span>
+      <div class="num-l">Brecha de acceso financiero entre zonas urbanas y rurales en Colombia</div>
+      <span class="num-src">Fuente: SFC — Reporte de Inclusión Financiera 2023</span>
+    </div>
+    <div class="num">
+      <span class="num-n">12–22%</span>
+      <div class="num-l">Retorno anual reportado en plataformas de financiación agrícola en Colombia</div>
+      <span class="num-src">Fuente: Agrapp Colombia</span>
+    </div>
+    <div class="num">
+      <span class="num-n">90%</span>
+      <div class="num-l">Penetración de WhatsApp en Colombia — nuestro canal de acceso</div>
+      <span class="num-src">Fuente: DataReportal 2024</span>
+    </div>
   </div>
 </section>
 
-<!-- CTA BAND -->
-<section class="cta-band" id="whatsapp">
-  <div>
-    <h2>¿Tienes un negocio en el campo?</h2>
-    <p>El registro es gratuito, toma menos de 10 minutos, y se hace completamente por WhatsApp. Sin formularios, sin oficinas, sin costos.</p>
+<section class="cta-wrap" id="whatsapp">
+  <div class="s-tag" style="justify-content:center">Empieza hoy</div>
+  <h2 class="s-h2">¿Tienes un negocio agrícola<br>en el campo colombiano?</h2>
+  <p>El registro es gratuito, toma menos de 5 minutos,<br>y se hace completamente por WhatsApp.</p>
+  <div class="cta-row">
+    <a href="https://wa.me/14155238886" class="btn-wa">💬 Empezar por WhatsApp</a>
+    <a href="mailto:hola@seeds.com.co" class="btn-email">✉️ Escribirnos</a>
   </div>
-  <a href="https://wa.me/14155238886" class="btn-cream">💬 Empezar por WhatsApp</a>
+  <p class="cta-note">¿Eres inversionista institucional? <a href="mailto:invest@seeds.com.co">Contáctanos directamente →</a></p>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
+  <div class="footer-top">
     <div>
       <div class="footer-brand">🌱 Seeds</div>
       <p class="footer-desc">Conectando el campo colombiano con el capital que merece. Impacto social, ambiental y financiero desde 2026.</p>
